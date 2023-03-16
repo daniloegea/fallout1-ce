@@ -3941,6 +3941,7 @@ static void combat_display_hit(char* dest, size_t size, Object* critter, int dam
     MessageListItem messageListItem;
     char text[40];
     char* name;
+    char* verb;
 
     int messageId;
     if (critter == obj_dude) {
@@ -3955,6 +3956,7 @@ static void combat_display_hit(char* dest, size_t size, Object* critter, int dam
         }
 
         name = text;
+        verb = "were";
     } else {
         name = object_name(critter);
 
@@ -3963,6 +3965,8 @@ static void combat_display_hit(char* dest, size_t size, Object* critter, int dam
         } else {
             messageId = 700;
         }
+
+        verb = "was";
     }
 
     switch (damage) {
@@ -3985,7 +3989,7 @@ static void combat_display_hit(char* dest, size_t size, Object* critter, int dam
         if (damage <= 1) {
             snprintf(dest, size, messageListItem.text, name);
         } else {
-            snprintf(dest, size, messageListItem.text, name, damage);
+            snprintf(dest, size, messageListItem.text, name, verb, damage);
         }
     }
 }
