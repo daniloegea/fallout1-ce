@@ -159,16 +159,14 @@ static unsigned char* ambuf;
 int automap_init()
 {
     autoflags = 0;
-    am_pip_init();
-    return 0;
+    return am_pip_init();
 }
 
 // 0x41A760
 int automap_reset()
 {
     autoflags = 0;
-    am_pip_init();
-    return 0;
+    return am_pip_init();
 }
 
 // 0x41A774
